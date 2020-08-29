@@ -68,3 +68,22 @@ chmod a+x /usr/local/bin/faas-cli
 #login with basic credentials 
 faas-cli login --password `cat /var/lib/faasd/secrets/basic-auth-password`
 ```
+
+
+#faas on debian/proxmox
+create CT
+```apt-get update``` 
+(don't just run apt-get docker)
+
+```
+#docker-ce
+apt-get install gnupg
+wget -q -O- https://download.docker.com/linux/debian/gpg | apt-key add -
+echo "deb https://download.docker.com/linux/debian buster stable" > /etc/apt/sources.list.d/docker.list
+apt update
+#should try docker-ce-cli only
+# apt-get install docker-ce #### don't need entire docker engine
+apt-get install -y docker-ce-cli
+
+
+```
