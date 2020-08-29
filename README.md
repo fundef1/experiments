@@ -70,7 +70,7 @@ faas-cli login --password `cat /var/lib/faasd/secrets/basic-auth-password`
 ```
 
 
-#faas on debian/proxmox
+#docker command for faas on debian/proxmox\
 create CT
 ```apt-get update``` 
 (don't just run apt-get docker)
@@ -83,7 +83,10 @@ echo "deb https://download.docker.com/linux/debian buster stable" > /etc/apt/sou
 apt update
 #should try docker-ce-cli only
 # apt-get install docker-ce #### don't need entire docker engine
-apt-get install -y docker-ce-cli
-
-
+#apt-get install -y docker-ce-cli
+#gggrmmbl still needs docker running...
+apt-get install docker-ce```
 ```
+
+grab templates from faas store
+faas-cli template store pull
