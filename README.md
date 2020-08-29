@@ -18,12 +18,13 @@ ssh into CT\
 ```apt-get update && apt-get install runc```
 
 #unused just for reference
+```
 FAASD-VERSION=0.9.2
 FAASCLI-VERSION=0.12.9
 CONTAINERD-VERSION=1.4.0
 CNI-VERSION=0.8.7
 DNS=10.0.0.2
-
+```
 
 ```wget https://github.com/containerd/containerd/releases/download/v1.4.0/containerd-1.4.0-linux-amd64.tar.gz
 tar -xvf ./containerd-1.4.0-linux-amd64.tar.gz -C /usr/local/bin/ --strip-components=1
