@@ -70,7 +70,7 @@ faas-cli login --password `cat /var/lib/faasd/secrets/basic-auth-password`
 ```
 
 
-#docker command for faas on debian/proxmox\
+# docker command for faas on debian/proxmox\
 create CT
 ```apt-get update``` 
 (don't just run apt-get docker)
@@ -90,3 +90,17 @@ apt-get install docker-ce```
 
 grab templates from faas store
 faas-cli template store pull
+
+# faas-cli doesn't support http , generate self-signed cert for docker registry
+
+```openssl req -newkey rsa:4096 -nodes -sha256 -keyout $REGHOST.key -x509 -days 3365 -out $REGHOST.crt```
+add into registry container with
+```
+  -v "/etc/ssl/$REGHOST-certs:/certs \
+  -e REGISTRY_HTTP_ADDR=0.0.0.0:443 \
+  -e REGISTRY_HTTP_TLS_CERTIFICATE=/certs/domain.crt \
+  -e REGISTRY_HTTP_TLS_KEY=/certs/domain.key \
+```
+on faasd, copy over to ```/usr/local/share/ca-certificates/```\
+and run ```update-ca-certificates``` \
+restart container (?)
