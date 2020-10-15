@@ -12,7 +12,9 @@ adduser -S -D -H -h /var/lib/syncthing -s /sbin/nologin -G syncthing -g syncthin
 ```
 
 ## /etc/init.d
-add options for config and data dirs
+add options for config and data dirs *put in /etc/conf.d ?*
+add service to default runlevel ```rc-update add syncthing```
+
 
 ## config syncthing
 ``` syncthing -generate```
